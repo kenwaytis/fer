@@ -3,7 +3,7 @@
 A RESTful API server running in a Docker container that provides face expression services. CPU only.
 The neural network model and inference code is derived from [Jiaxin-Ye/TIM-Net_SER](https://github.com/Jiaxin-Ye/TIM-Net_SER).
 
-SER benchmark corpora from TIM-Net_SER paper Table 1.Evaluation measures are UAR(%) / WAR(%):
+SER benchmark corpora from TIM-Net_SER paper. Evaluation measures are UAR(%) / WAR(%):
 
 | Model   | CASIA         | EMODB         | EMOVO         | IEMOCAP       | RAVDESS       | SAVEE         |
 | ------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
@@ -33,7 +33,7 @@ docker compose up
 
 3. (opsition) Build the image from scratch
 
-   3.1 Modify the docker-compose.yml file from
+3.1 Modify the docker-compose.yml file from
 
 ```
 image: paidax/fer:cpu_0.3
@@ -45,7 +45,7 @@ image: paidax/fer:cpu_0.3
 image: namespace/fer:cpu_0.3
 ```
 
-​		3.2 Start the server
+3.2 Start the server
 
 ```
 docker compose up
@@ -78,6 +78,11 @@ POST
   "image": "http://test.xxxx.jpg"
 }
 ```
+
+### 4. Notes on use
+
+To cope with larger loads, more than ten CPU cores can be used and four multithreaded services are enabled, as specified in docker-compose.yml.
+You can change the number to suit your needs.
 
 ## Acknowledgments
 
