@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  fer:
+    container_name: fer
+    image: paidax/fer:cpu_0.3
+    restart: always
+    ports:
+      - "9000:9000"
+    command: uvicorn main:app --port 9000 --host 0.0.0.0 --workers 4
+    cpus: 10
